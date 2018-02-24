@@ -1,0 +1,4 @@
+en:
+  error:
+    not_found: "Sorry the page you requested could not be found"
+    internal_server_error: "There was an internal server error. Please contact Admin"
