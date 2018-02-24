@@ -5,6 +5,7 @@ en:
     format_email: "entered is not in correct format"
     format_username: "must contain 1 to 15 lowercase characters, and/or numeric characters and/or underscores"
     format_password: "must contain at least a lowercase letter, a uppercase, a digit, a special char and 8 to 72 chars"
+    length_utoken: "must be %{len} characters long"
   user_mailer:
     welcome:
       subject: "Welcome to Chat Casts"

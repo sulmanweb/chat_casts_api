@@ -11,6 +11,8 @@ class User < ApplicationRecord
   validates :password, presence: true, on: :create
   validates :password, format: {with: /\A(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\W]).{8,72}\z/, message: I18n.t('error.format_password')}, if: :password
 
+  has_many :sessions, dependent: :destroy
+
   after_create :send_welcome_mail
 
   private
