@@ -65,4 +65,9 @@ RSpec.describe User, type: :model do
     user.update(username: "sulmanweb")
     expect(user.valid?).to be_truthy
   end
+
+  it "enqueues welcome mailer after creation" do
+    user = FactoryBot.build(:user, email: "sulmanweb@gmail.com")
+    expect {user.save}.to change {ActionMailer::DeliveryJob.queue_adapter.enqueued_jobs.count}.by(1)
+  end
 end

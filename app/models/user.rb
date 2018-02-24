@@ -10,4 +10,12 @@ class User < ApplicationRecord
   # validates password length and regex
   validates :password, presence: true, on: :create
   validates :password, format: {with: /\A(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\W]).{8,72}\z/, message: I18n.t('error.format_password')}, if: :password
+
+  after_create :send_welcome_mail
+
+  private
+
+  def send_welcome_mail
+    UserMailer.welcome(self.id).deliver_later
+  end
 end
