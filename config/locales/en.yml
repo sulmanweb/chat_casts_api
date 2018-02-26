@@ -6,9 +6,20 @@ en:
     format_username: "must contain 1 to 15 lowercase characters, and/or numeric characters and/or underscores"
     format_password: "must contain at least a lowercase letter, a uppercase, a digit, a special char and 8 to 72 chars"
     length_utoken: "must be %{len} characters long"
+    length_v_token: "must be %{len} characters long"
   user_mailer:
     welcome:
       subject: "Welcome to Chat Casts"
       greetings: "Hi %{name}!"
       body: "Welcome to Chat Casts from Sulman Baig (Developer). This is just a notification email. Thanks for joining"
+      footer: "Best Regards"
+    confirm:
+      subject: "Confirm Email by Chat Casts"
+      greetings: "Hi %{name}!"
+      body: "Welcome to Chat Casts from Sulman Baig (Developer). Your Confirmation Token is %{token}"
+      footer: "Best Regards"
+    reset:
+      subject: "Confirm Email by Chat Casts"
+      greetings: "Hi %{name}!"
+      body: "Welcome to Chat Casts from Sulman Baig (Developer). Your Reset Password Token is %{token}"
       footer: "Best Regards"

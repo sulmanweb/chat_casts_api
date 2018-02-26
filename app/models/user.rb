@@ -12,12 +12,20 @@ class User < ApplicationRecord
   validates :password, format: {with: /\A(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\W]).{8,72}\z/, message: I18n.t('error.format_password')}, if: :password
 
   has_many :sessions, dependent: :destroy
+  has_many :verifications, dependent: :destroy
 
   after_create :send_welcome_mail
+
+  after_create :send_verification
 
   private
 
   def send_welcome_mail
     UserMailer.welcome(self.id).deliver_later
+  end
+
+  def send_verification
+    verify = Verification.build_confirm(self)
+    verify.save!
   end
 end

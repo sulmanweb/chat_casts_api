@@ -1,0 +1,3 @@
+<%= I18n.t('user_mailer.confirm.greetings', name: @verification.user.name) %>
+<%= I18n.t('user_mailer.confirm.body', token: @verification.token) %>
+<%= I18n.t('user_mailer.confirm.footer') %>
